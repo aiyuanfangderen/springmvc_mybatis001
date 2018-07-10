@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>登陆测试</title>
+ <script type="text/javascript" src="js/jquery-1.7.2.min.js">
+</script>
+
+</head>
+<body>
+     <input type="text" id="username"><span><font id="message"></font></span>
+     <br>
+     <input type="password" id="password">
+     <br>
+     
+  <input id="123" type="button" onclick="responseJson4()" value="登陆"/>
+   
+  
+
+   <script type="text/javascript">
+ //请求的是key/value，输出的是json
+   function responseJson4(){
+   	
+	
+	 
+   	 var a=document.getElementById("username").value;
+   	 var b=document.getElementById("password").value;
+   	  $.ajax({
+   			type:"post",
+   			url:'responseJson4.action',
+   			dataType:"json",
+   			//json格式是json串
+   			data:{
+   				username:a,password:b
+   			},
+   	 
+   			success:function(data){
+   			 if(data.username=="失败")
+				{
+				
+				$("#message").text("登陆失败，请输入正确信息");
+				}
+			else
+				{
+				
+				$("#message").text("登陆成功");
+				} 
+   				
+   			}
+   		});  
+   	 
+   }
+   </script>
+  
+  
+</body>
+</html>

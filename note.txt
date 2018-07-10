@@ -1,0 +1,22 @@
+修改jsp为html和json
+
+
+
+
+
+在WebContent中add.html和jsonTest2.html和jsonTest3.html中实现了ajax进行数据的交互
+
+
+
+查不到外键值得原因是：数据库中得表得字段有特殊符号，无法从数据库拿到结果。不是由于外键得原因所造成得
+
+
+在service层用校验的过程：在spring.mvc中配置校验器，在config中配置相应的文件，在pojo中对相应的字段进行
+校验，在controller中对需要校验的地方添加相应的注解（实例位于springmvc_mybatis2中）
+
+
+对商品进行分类只需要在商品属性中增加一个商品的类别即可，在查询时对类别进行查询就ok了。
+        
+        
+        
+        ps:完整的一个商城项目

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>json的注册测试</title>
+ <script type="text/javascript" src="js/jquery-1.7.2.min.js">
+</script>
+
+</head>
+<body>
+     <input type="text" id="username"><span><font id="message"></font></span>
+     <br>
+     <input type="password" id="password">
+     <br>
+     
+  <input id="123" type="button" onclick="responseJson3()" value="注册"/>
+   <a href="abc.action">去登陆页面</a>
+  
+
+   <script type="text/javascript">
+ //请求的是key/value，输出的是json
+   function responseJson3(){
+   	
+	
+	 
+   	 var a=document.getElementById("username").value;
+   	 var b=document.getElementById("password").value;
+   	  $.ajax({
+   			type:"post",
+   			url:'responseJson3.action',
+   			dataType:"json",
+   			//json格式是json串
+   			data:{
+   				username:a,password:b
+   			},
+   	 
+   			success:function(data){
+   			 if(data.username=="失败")
+				{
+				
+				$("#message").text("该账号已经存在，请重新注册");
+				}
+			else
+				{
+				
+				$("#message").text("注册成功");
+				} 
+   				
+   			}
+   		});  
+   	 
+   }
+   </script>
+  
+  
+</body>
+</html>

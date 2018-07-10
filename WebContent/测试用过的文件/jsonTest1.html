@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>json的交互测试</title>
+ <script type="text/javascript" src="js/jquery-1.7.2.min.js">
+</script>
+
+</head>
+<body>
+     <input type="text" id="username"><span><font id="message"></font></span>
+     <br>
+     <input type="password" id="password">
+     <br>
+     
+  <input id="123" type="button" onclick="responseJson()" value="注册"/>
+   <a href="abc.action">去登陆页面</a>
+  
+
+   <script type="text/javascript">
+ //请求的是key/value，输出的是json
+   function responseJson(){
+   	
+   	 var a=document.getElementById("username").value;
+   	 
+   	 $.ajax({
+   			type:"post",
+   			url:'responseJson.action',
+   			dataType:"json",
+   			//json格式是json串
+   			data:"name="+a,
+   			success:function(data){
+   				
+   				 if(data.name=="失败")
+   					{
+   					
+   					$("#message").text("该账号已经存在，请重新注册");
+   					}
+   				else
+   					{
+   					
+   					$("#message").text("注册成功");
+   					} 
+   			}
+   		}); 
+   	 
+   }
+   </script>
+  
+  
+</body>
+</html>
+
+ <!--  <input type="button" id="btn" value="ajax测试"> -->
+
+   <!--  <div id="test"></div> -->
+
+  <!--  $(function(){
+	  
+	   $('#btn').click(function(){
+		   alert("a");
+		   $.ajax({
+				type:"post",
+				url:'responseJson.action',
+				dataType:"json",
+				//json格式是json串
+				data:"name="+a,
+				success:function(data){
+					alert(data);
+				}
+			})
+	   })
+   })  -->
